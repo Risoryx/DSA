@@ -32,7 +32,7 @@ struct Node* insertNode(struct Node* head,int co,int ex){   //Keep in mind, in t
             temp->next=ptr;
                 
             }
-        return head;
+        return head; //This return head only really plays a role when list is empty ie initial head=NULL
 }
 
 struct Node* addition(struct Node* head1,struct Node* head2, struct Node* sum){
