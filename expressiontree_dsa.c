@@ -91,12 +91,12 @@ This process repeats until the final operator is read
 At which point there will be only one element in the stack which will be pointer to root of the whole tree.
 eg:
 
-Symbol      read	Operation	                                                Stack (bottom → top)
-A	        Create node A and push	                                            A
-B	        Create node B and push	                                            A, B
-C	        Create node C and push	                                            A, B, C
-*	        Pop C (right), B (left child).    Create * and push	                A, *
-+	        Pop * (right child), A (left child).    Create + and push          `+
+Symbol read	    Operation	                                                        Stack (bottom → top)
+A	            Create node A and push	                                            A
+B	            Create node B and push	                                            A, B
+C	            Create node C and push	                                            A, B, C
+*	            Pop C (right), B (left child).    Create * and push	                A, *
++	            Pop * (right child), A (left child).    Create + and push           +
 
 Btw when we say stack contains A, what it actually means is the stack contains a pointer to node containing A and not A itself.
 
