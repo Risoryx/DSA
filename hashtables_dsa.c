@@ -52,7 +52,7 @@ void suggest(char word[]){
     for (int i=0; i<len; i++){                     //The objective is to replace every character with every possible lowercase alphabet letter.  Outer loop (i) decides WHICH character position to replace. Inner loop (c) decides WHAT character to replace it with.
         for (char c='a'; c<='z'; c++){
             strcpy(temp,word);                     // Why do we call strcpy() every time?  Because we want to start with the original word for every new attempt.  Otherwise, the modifications from the previous iteration could remain. After trying all 26 letters, the inner loop finishes.
-            temp[i]=c;
+            temp[i]=c;     
 
             if (search(temp)){
                 printf("%s\n",temp);
@@ -62,12 +62,12 @@ void suggest(char word[]){
 
     // 2. INSERTION
     for (int i=0; i<=len; i++){                   // The reason we do i<=len is because we can also insert after final character
-        for (char c='a'; c<='z'; c++){
+        for (char c='a'; c<='z'; c++){            //so for insert all you re doing is finding place to insert and then moving everything to the right of it one more place to the right
             strcpy(temp,word);
 
             memmove(temp+i+1,temp+i,len-i+1);            // memmove(destination, source, number_of_bytes);   It copies the specified number of bytes from source to destination.   eg: memmove(temp + 2, temp + 1, 4);    Lets break it down: temp + 2: Destination starts at index 2. temp + 1: Source starts at index 1. 4: Copy 4 bytes.  Essentially, we're shifting everything from index 1 onwards one position to the right.
                                                          // We do len-i+1 instead of just len-i because we also need to shift the null character to the right!
-            temp[i]=c;
+            temp[i]=c;                                   //in memmove, temp is index 0
 
             if (search(temp)){
                 printf("%s\n",temp);
